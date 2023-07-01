@@ -25,6 +25,6 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Пользователь с таким именем уже существует')
 
     def validate_email(self, email):
-        user_count = User.query.filter_by(username=email.data).count()
+        user_count = User.query.filter_by(email=email.data).count()
         if user_count > 0:
             raise ValidationError('Пользователь с таким Email уже существует')
